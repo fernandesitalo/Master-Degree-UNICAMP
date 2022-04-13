@@ -1,0 +1,24 @@
+J: 900
+F: 1667
+L: 10
+M: 5
+P: 8
+
+
+
+Set parameter Username
+Academic license - for non-commercial use only - expires 2022-05-25
+Set parameter TimeLimit to value 1800
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 45541 rows, 12135760 columns and 24938320 nonzeros
+Model fingerprint: 0x7e408704
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  Objective range  [1e+01, 1e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+01, 1e+03]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+

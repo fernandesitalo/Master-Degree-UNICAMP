@@ -1,0 +1,91 @@
+J: 500
+F: 520
+L: 10
+M: 9
+P: 10
+
+
+
+Set parameter Username
+Academic license - for non-commercial use only - expires 2022-05-25
+Set parameter TimeLimit to value 1800
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 20080 rows, 2652000 columns and 5772000 nonzeros
+Model fingerprint: 0x3a437f21
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  Objective range  [1e+01, 1e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+01, 1e+03]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve time: 4.26s
+Presolved: 20080 rows, 2652000 columns, 5772000 nonzeros
+
+Ordering time: 4.04s
+Elapsed ordering time = 5s
+Elapsed ordering time = 10s
+Ordering time: 10.58s
+
+Barrier statistics:
+ AA' NZ     : 2.764e+06
+ Factor NZ  : 1.327e+07 (roughly 1.2 GB of memory)
+ Factor Ops : 2.354e+10 (roughly 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   2.67409447e+09  0.00000000e+00  3.11e+04 0.00e+00  2.70e+03    34s
+   1   2.86527183e+08 -9.13723927e+06  3.33e+03 8.66e-02  2.94e+02    35s
+   2   2.39416986e+07 -3.79076760e+06  2.13e+02 6.53e-03  2.18e+01    35s
+   3   7.92869977e+06 -1.68569274e+06  3.78e+01 1.42e-03  5.28e+00    36s
+   4   5.78946923e+06 -9.11553093e+05  1.91e+01 2.84e-14  3.22e+00    37s
+   5   4.95383422e+06 -6.03485944e+05  1.39e+01 1.52e-03  2.56e+00    38s
+   6   3.98135294e+06 -2.92151888e+05  1.01e+01 2.84e-14  1.91e+00    39s
+   7   3.68865809e+06 -2.39612132e+05  8.95e+00 2.84e-14  1.74e+00    40s
+   8   2.79214325e+06  4.47766425e+05  4.42e+00 6.43e-04  9.57e-01    40s
+   9   2.27085626e+06  1.30009136e+06  1.14e+00 2.84e-14  3.62e-01    41s
+  10   2.08048782e+06  1.40238214e+06  6.60e-01 2.84e-14  2.52e-01    42s
+  11   2.04940778e+06  1.44458423e+06  6.17e-01 2.84e-14  2.24e-01    42s
+  12   1.99273542e+06  1.45543605e+06  5.32e-01 2.84e-14  1.99e-01    43s
+  13   1.90808062e+06  1.47288583e+06  4.27e-01 2.84e-14  1.61e-01    44s
+  14   1.82603948e+06  1.49079639e+06  3.30e-01 2.84e-14  1.24e-01    45s
+  15   1.77102112e+06  1.51272299e+06  2.61e-01 2.84e-14  9.52e-02    46s
+  16   1.69471329e+06  1.52204410e+06  2.99e-01 2.84e-14  6.36e-02    47s
+  17   1.63483830e+06  1.52795943e+06  1.73e-01 2.84e-14  3.94e-02    48s
+  18   1.58953249e+06  1.52893336e+06  9.66e-02 2.84e-14  2.23e-02    49s
+  19   1.57253080e+06  1.52953564e+06  6.86e-02 2.84e-14  1.59e-02    50s
+  20   1.55807429e+06  1.53018858e+06  4.37e-02 2.84e-14  1.03e-02    51s
+  21   1.54896302e+06  1.53054078e+06  2.84e-02 2.84e-14  6.80e-03    51s
+  22   1.54181457e+06  1.53073928e+06  1.66e-02 2.84e-14  4.09e-03    52s
+  23   1.53645599e+06  1.53082700e+06  7.90e-03 2.84e-14  2.08e-03    53s
+  24   1.53370438e+06  1.53088266e+06  3.79e-03 2.84e-14  1.04e-03    54s
+  25   1.53296491e+06  1.53089564e+06  2.79e-03 2.84e-14  7.65e-04    54s
+  26   1.53116564e+06  1.53089981e+06  3.16e-04 2.84e-14  9.85e-05    55s
+  27   1.53090509e+06  1.53090117e+06  1.09e-06 2.84e-14  1.47e-06    56s
+  28   1.53090126e+06  1.53090126e+06  6.24e-10 2.84e-14  2.07e-12    57s
+
+Barrier solved model in 28 iterations and 56.81 seconds (34.89 work units)
+Optimal objective 1.53090126e+06
+
+Crossover log...
+
+    5227 DPushes remaining with DInf 0.0000000e+00                57s
+       0 DPushes remaining with DInf 0.0000000e+00                57s
+
+   38941 PPushes remaining with PInf 0.0000000e+00                57s
+       0 PPushes remaining with PInf 0.0000000e+00                58s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 1.0658141e-14     58s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+   44171    1.5309013e+06   0.000000e+00   0.000000e+00     59s
+
+Solved with barrier
+Solved in 44171 iterations and 58.93 seconds (35.94 work units)
+Optimal objective  1.530901256e+06
+Seconds to run the model: 59.43199920654297
+

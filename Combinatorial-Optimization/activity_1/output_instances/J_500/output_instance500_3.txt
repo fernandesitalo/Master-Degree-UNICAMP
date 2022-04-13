@@ -1,0 +1,90 @@
+J: 500
+F: 566
+L: 8
+M: 8
+P: 9
+
+
+
+Set parameter Username
+Academic license - for non-commercial use only - expires 2022-05-25
+Set parameter TimeLimit to value 1800
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 18650 rows, 2587752 columns and 5501520 nonzeros
+Model fingerprint: 0xf3cb3ea9
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  Objective range  [1e+01, 1e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+01, 1e+03]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve time: 3.75s
+Presolved: 18650 rows, 2587752 columns, 5501520 nonzeros
+
+Ordering time: 3.11s
+Elapsed ordering time = 5s
+Ordering time: 6.80s
+
+Barrier statistics:
+ AA' NZ     : 2.681e+06
+ Factor NZ  : 1.283e+07 (roughly 1.1 GB of memory)
+ Factor Ops : 2.261e+10 (less than 1 second per iteration)
+ Threads    : 3
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   2.79395735e+09  0.00000000e+00  3.38e+04 0.00e+00  2.90e+03    26s
+   1   2.24680088e+08 -9.31099816e+06  2.71e+03 5.68e-14  2.38e+02    26s
+   2   1.16855158e+07 -3.51820832e+06  7.28e+01 4.26e-14  9.70e+00    27s
+   3   7.04624292e+06 -1.33664862e+06  2.76e+01 4.26e-14  4.33e+00    27s
+   4   4.61912336e+06 -7.13000015e+05  1.36e+01 2.84e-14  2.53e+00    28s
+   5   2.41705543e+06 -3.67917061e+05  3.63e+00 2.84e-14  1.18e+00    29s
+   6   2.24263539e+06  7.66015935e+05  1.65e+00 2.84e-14  5.84e-01    29s
+   7   2.00031468e+06  1.18794948e+06  8.49e-01 2.84e-14  3.13e-01    30s
+   8   1.94889218e+06  1.24004400e+06  7.29e-01 2.84e-14  2.72e-01    30s
+   9   1.84510791e+06  1.27630940e+06  5.81e-01 2.84e-14  2.18e-01    30s
+  10   1.76506364e+06  1.31405670e+06  4.55e-01 2.84e-14  1.72e-01    31s
+  11   1.66551813e+06  1.33614565e+06  3.15e-01 2.84e-14  1.26e-01    32s
+  12   1.55672688e+06  1.36096707e+06  1.90e-01 2.84e-14  7.47e-02    32s
+  13   1.48197324e+06  1.37670484e+06  2.66e-01 2.84e-14  4.01e-02    33s
+  14   1.44782782e+06  1.38302313e+06  8.61e-01 2.84e-14  2.47e-02    34s
+  15   1.42970511e+06  1.38391015e+06  6.24e-01 2.84e-14  1.74e-02    35s
+  16   1.42352122e+06  1.38478188e+06  5.17e-01 2.84e-14  1.48e-02    35s
+  17   1.41454509e+06  1.38611629e+06  3.67e-01 2.84e-14  1.08e-02    36s
+  18   1.41292695e+06  1.38742441e+06  3.42e-01 2.84e-14  9.71e-03    37s
+  19   1.40851898e+06  1.38788662e+06  2.76e-01 2.84e-14  7.85e-03    37s
+  20   1.40481662e+06  1.38842416e+06  2.22e-01 2.84e-14  6.24e-03    38s
+  21   1.40030319e+06  1.38862991e+06  1.56e-01 2.84e-14  4.44e-03    39s
+  22   1.39801107e+06  1.38887082e+06  1.23e-01 2.84e-14  3.48e-03    40s
+  23   1.39270704e+06  1.38898180e+06  4.67e-02 2.84e-14  1.42e-03    41s
+  24   1.39003323e+06  1.38916053e+06  9.52e-03 2.84e-14  3.33e-04    42s
+  25   1.38971547e+06  1.38924684e+06  5.66e-03 4.26e-14  1.79e-04    43s
+  26   1.38927294e+06  1.38925173e+06  7.14e-08 2.84e-14  8.15e-06    44s
+  27   1.38925213e+06  1.38925211e+06  2.96e-07 4.26e-14  7.54e-09    44s
+  28   1.38925211e+06  1.38925211e+06  2.07e-08 2.84e-14  8.85e-15    45s
+
+Barrier solved model in 28 iterations and 45.06 seconds (34.40 work units)
+Optimal objective 1.38925211e+06
+
+Crossover log...
+
+    5027 DPushes remaining with DInf 0.0000000e+00                45s
+       0 DPushes remaining with DInf 0.0000000e+00                46s
+
+   37199 PPushes remaining with PInf 0.0000000e+00                46s
+       0 PPushes remaining with PInf 0.0000000e+00                46s
+
+  Push phase complete: Pinf 0.0000000e+00, Dinf 4.9737992e-14     46s
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+   42229    1.3892521e+06   0.000000e+00   0.000000e+00     47s
+
+Solved with barrier
+Solved in 42229 iterations and 47.08 seconds (35.40 work units)
+Optimal objective  1.389252110e+06
+Seconds to run the model: 47.55768895149231
+
