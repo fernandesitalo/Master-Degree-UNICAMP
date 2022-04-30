@@ -211,10 +211,10 @@ def heuristics_upper_bound2(error, model, ce1, ce2):
     minimum_window_cost = 1e10
     min_l, min_r = 0,-1
 
-    while N > r+1:
+    while 2*N > r+1:
         while K+1 > (r-l+1) and N > r+1:
             r += 1
-            cost_edge1 = ce2[max(tour_tsp1[r],tour_tsp1[(r+1)%N]),min(tour_tsp1[r],tour_tsp1[(r+1)%N])]
+            cost_edge1 = ce2[max(tour_tsp1[r%N],tour_tsp1[(r+1)%N]),min(tour_tsp1[r%N],tour_tsp1[(r+1)%N])]
             window_cost += cost_edge1
 
         if minimum_window_cost > window_cost:
@@ -222,7 +222,7 @@ def heuristics_upper_bound2(error, model, ce1, ce2):
             min_l = l
             min_r = r
 
-        cost_edge1 = ce2[max(tour_tsp1[l],tour_tsp1[(l+1)%N]), min(tour_tsp1[l],tour_tsp1[(l+1)%N])]
+        cost_edge1 = ce2[max(tour_tsp1[l%N],tour_tsp1[(l+1)%N]), min(tour_tsp1[l%N],tour_tsp1[(l+1)%N])]
         window_cost -= cost_edge1
         l += 1
 
