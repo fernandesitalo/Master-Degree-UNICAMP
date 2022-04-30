@@ -1,0 +1,90 @@
+n = 100
+k = 0
+Set parameter Username
+Academic license - for non-commercial use only - expires 2022-06-09
+Set parameter TimeLimit to value 1.7999797694683075e+03
+Set parameter LazyConstraints to value 1
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 10100 rows, 14850 columns and 39600 nonzeros
+Model fingerprint: 0xc75d6592
+Variable types: 0 continuous, 14850 integer (14850 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e+00, 2e+00]
+Presolve time: 0.03s
+Presolved: 10100 rows, 14850 columns, 39600 nonzeros
+Variable types: 0 continuous, 14850 integer (14850 binary)
+
+Root relaxation: objective 1.529000e+03, 325 iterations, 0.01 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 1529.00000    0   24          - 1529.00000      -     -    0s
+     0     0 1540.50000    0   24          - 1540.50000      -     -    0s
+     0     0 1541.50000    0   18          - 1541.50000      -     -    0s
+     0     0 1545.00000    0   12          - 1545.00000      -     -    0s
+     0     0 1546.25000    0   30          - 1546.25000      -     -    0s
+     0     0 1547.08333    0   64          - 1547.08333      -     -    0s
+     0     0 1547.33333    0   73          - 1547.33333      -     -    0s
+     0     0 1548.50000    0   27          - 1548.50000      -     -    0s
+     0     0 1550.50000    0   28          - 1550.50000      -     -    0s
+     0     0 1550.50000    0   30          - 1550.50000      -     -    0s
+     0     0 1550.50000    0   22          - 1550.50000      -     -    0s
+     0     0 1550.50000    0   18          - 1550.50000      -     -    0s
+     0     0 1550.50000    0   18          - 1550.50000      -     -    0s
+     0     0 1550.66667    0   26          - 1550.66667      -     -    0s
+     0     0 1552.70000    0   60          - 1552.70000      -     -    0s
+     0     0 1552.70000    0   61          - 1552.70000      -     -    0s
+     0     0 1567.25000    0   72          - 1567.25000      -     -    0s
+     0     0 1568.25000    0   55          - 1568.25000      -     -    0s
+     0     0 1569.33333    0   73          - 1569.33333      -     -    0s
+     0     0 1569.66667    0   76          - 1569.66667      -     -    0s
+     0     0 1569.91667    0   79          - 1569.91667      -     -    0s
+     0     0 1570.83333    0   83          - 1570.83333      -     -    0s
+     0     0 1571.16667    0   87          - 1571.16667      -     -    0s
+     0     0 1571.16667    0   89          - 1571.16667      -     -    0s
+     0     0 1571.50000    0   61          - 1571.50000      -     -    0s
+     0     0 1571.50000    0   38          - 1571.50000      -     -    0s
+     0     0 1575.50000    0   32          - 1575.50000      -     -    0s
+     0     2 1575.50000    0   32          - 1575.50000      -     -    1s
+*  482   461             102    1663.0000000 1585.50000  4.66%   6.5    2s
+H  553   477                    1662.0000000 1586.00000  4.57%   7.1    3s
+H  556   462                    1657.0000000 1586.00000  4.28%   7.1    3s
+H 1031   740                    1645.0000000 1586.00000  3.59%   7.1    4s
+H 1044   593                    1639.0000000 1586.00000  3.23%   7.1    4s
+H 1047   544                    1632.0000000 1625.25000  0.41%   7.1    4s
+  1051   547 1628.66667   53   61 1632.00000 1628.66667  0.20%   7.1    5s
+* 1057   525              23    1629.9999994 1630.00000  0.00%   7.6    5s
+
+Cutting planes:
+  Gomory: 30
+  Clique: 5
+  MIR: 1
+  Flow cover: 4
+  Zero half: 27
+
+Explored 1057 nodes (9085 simplex iterations) in 5.08 seconds (2.76 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 7: 1630 1632 1639 ... 1663
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.629999999417e+03, best bound 1.629999999417e+03, gap 0.0000%
+
+User-callback calls 3076, time in user-callback 0.56 sec
+Seconds to run the model: 5.08453369140625
+
+
+
+=============================================================
+Z_lb: 1629.999999416667 Z_ub: 10000000000.0
+lagrange_multiplier: 0
+penalidade: 0.0
+=============================================================
+
+
+Seconds to run the method: 5.26133394241333

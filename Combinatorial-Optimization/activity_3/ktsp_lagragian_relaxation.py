@@ -134,7 +134,6 @@ def print_solution(model, dist1, dist2, edges1, edges2):
     print("Total optimal cost: {}".format(model.ObjVal))
 
 
-
 def run_model(lagrange_multiplier, ce1, ce2):
     # print("\n>> run model with lagrange_multiplier: {}\n".format(lagrange_multiplier))
 
@@ -201,48 +200,38 @@ def calc_dists(points1, points2):
 
 
 def heuristics_upper_bound2(error, model, ce1, ce2):
-    
     tour_tsp1 = subtour(model.getAttr('X', model._x1))
     tour_tsp2 = subtour(model.getAttr('X', model._x2))
-
-    if 0 >= error:
-        return calc_solution(tour_tsp1, tour_tsp2, ce1, ce2)
-
- # fixed solution in tsp1 - and choose K edges with lower cost
 
     assert len(tour_tsp1) == N
     assert len(tour_tsp2) == N
 
     l, r = 0, -1
     window_cost = 0
-
-    KK = K + (K != 0)
-
     minimum_window_cost = 1e10
-    min_l = 0
-    min_r = KK
+    min_l, min_r = 0,-1
+
     while N > r+1:
-        while KK > (r-l+1) and N > r+1:
+        while K+1 > (r-l+1) and N > r+1:
             r += 1
-            cost_edge1 = ce2[max(tour_tsp1[r],tour_tsp1[(r+1)%N]), min(tour_tsp1[r],tour_tsp1[(r+1)%N])]
-            window_cost += cost_edge1 #+ cost_edge2
+            cost_edge1 = ce2[max(tour_tsp1[r],tour_tsp1[(r+1)%N]),min(tour_tsp1[r],tour_tsp1[(r+1)%N])]
+            window_cost += cost_edge1
 
         if minimum_window_cost > window_cost:
             minimum_window_cost = window_cost
             min_l = l
             min_r = r
 
-        cost_edge1 = ce2[max(tour_tsp1[r],tour_tsp1[(r+1)%N]), min(tour_tsp1[r],tour_tsp1[(r+1)%N])]
-        window_cost -= (cost_edge1) #+ cost_edge2)
+        cost_edge1 = ce2[max(tour_tsp1[l],tour_tsp1[(l+1)%N]), min(tour_tsp1[l],tour_tsp1[(l+1)%N])]
+        window_cost -= cost_edge1
         l += 1
 
-    vertex_not_in_tsp2 = set( i  for i in range(N))
+    vertex_not_in_tsp2 = set(i  for i in range(N))
     tsp2 = []
-    if minimum_window_cost != 1e10:
-        while min_r >= min_l:
-            vertex_not_in_tsp2.remove(tour_tsp1[min_l])
-            tsp2.append(tour_tsp1[min_l])
-            min_l += 1
+    while min_r >= min_l:
+        vertex_not_in_tsp2.remove(tour_tsp1[min_l])
+        tsp2.append(tour_tsp1[min_l])
+        min_l += 1
 
 
     while len(tsp2) != N:
@@ -262,7 +251,7 @@ def heuristics_upper_bound2(error, model, ce1, ce2):
 
     assert len(set(tsp2)) == N
 
-    # just to check if the tps has K commom edges
+    # just to check if the tsp has K commom edges
     count_k = 0
     for i in range(N):
         next_i = (i+1)%N
@@ -287,11 +276,9 @@ def subgradient_method(ce1, ce2):
 
     # initial mulpitlier lagrangean
     lagrange_multiplier = 0
-    error = 10
     Z_ub, Z_lb = 1e10, -1e10
     model = None
     pi = 2.0
-    iter_ = 1
     while True:
 
         current_time = time.time()
@@ -302,31 +289,30 @@ def subgradient_method(ce1, ce2):
         model = run_model(lagrange_multiplier, ce1, ce2)
         
         ze = model.getAttr('X', model._ze)
-        error = K - sum(ze[i,j] for i in range(N) for j in range(i)) # for all relaxed restrictions
+        penalidade = K - sum(ze[i,j] for i in range(N) for j in range(i)) # for all relaxed restrictions
         
-        Z_lb = model.ObjVal
-        Z_ub_current = heuristics_upper_bound2(math.ceil(error), model, ce1, ce2)
-        Z_ub = min(Z_ub_current, Z_ub)
+        Z_lb_current = -1e10
 
-        if abs(error) < 1e-8 == 0.0 or abs(Z_lb - Z_ub) < 1e-3:
+        if 0 >= penalidade: 
+            Z_lb = max(model.ObjVal, Z_lb)
+        else:
+            Z_ub = min( heuristics_upper_bound2(math.ceil(penalidade), model, ce1, ce2) , Z_ub)
+
+        print("\n\n=============================================================")
+        print("Z_lb: {} Z_ub: {}".format(Z_lb, Z_ub))
+        print("lagrange_multiplier: {}".format(lagrange_multiplier))
+        print("penalidade: {}".format(penalidade))
+        print("=============================================================\n\n")
+
+        if penalidade == 0.0 or Z_lb == Z_ub:
             break
 
-        print("\n\n =============================================================")
-        print("lagrange_multiplier:  {}".format(lagrange_multiplier))
-        print("Z_lb: {} Z_ub {}".format(Z_lb, Z_ub))
-        print("ERRO: {}".format(error))
-        print("CURRENT Z_ub: {}".format(Z_ub_current))
-        print(" =============================================================\n\n")
-
-        alfa = pi * (Z_ub - Z_lb) / (error**2)
-
-        pi *= 0.9
-
-        lagrange_multiplier += alfa * error
+        alfa = pi * (Z_ub - Z_lb) / (penalidade**2)
+        pi *= 0.95
+        lagrange_multiplier += alfa * penalidade
         lagrange_multiplier = max(0, lagrange_multiplier)
-        iter_ += 1
 
-    return model
+    return model, Z_ub
 
 
 def main():
@@ -347,16 +333,11 @@ def main():
     dist1, dist2 = calc_dists(points1, points2)
 
     START_TIME = time.time()
-    m = subgradient_method(dist1, dist2)
+    m,solution = subgradient_method(dist1, dist2)
 
     end_time = time.time()
 
     print("Seconds to run the method: {}".format(end_time - START_TIME))
-
-    # run_model([0],m,dist1,dist2)
-
-    print("RESOLUTION: {}".format(m.ObjVal))
-    # print_solution(m, dist1, dist2, m._x1, m._x2)
 
 if __name__ == "__main__":
     main()
